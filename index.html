@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
-    <title>Document</title>
+    <title>Spotify - Web Player: Music for everyone</title>
   </head>
   <body>
     <div class="container flex bg-black">
@@ -93,8 +93,8 @@
             </svg>
           </div>
           <div class="buttons">
-            <button>Sign Up</button>
-            <button>Login</button>
+            <button class ="signupbtn">Sign Up</button>
+            <button class="loginbtn">Log in</button>
           </div>
         </div>
         <div class="spotifyPlaylists">
@@ -103,33 +103,35 @@
             <div class="card">
               <div class="play">
                 <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill=#000
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="20" cy="20" r="18" fill="#1ED760" />
-                  <path d="M17 13V27L28 20L17 13Z" fill="#000000" />
+                  <path
+                    d="M5 20V4L19 12L5 20Z"
+                    stroke="#141B34"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
                 </svg>
               </div>
-              <img
-                src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d"
-                alt=""
-              />
+
+              <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt=""/>
               <h2>Happy Hits!</h2>
               <p>Hits to boost your mood and fill you with happiness!</p>
             </div>
-            <div class="card">
-              <img
-                src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d"
-                alt=""
-              />
-              <h2>Happy Hits!</h2>
-              <p>Hits to boost your mood and fill you with happiness!</p>
-            </div>
+
+           
+
+
+
           </div>
         </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
