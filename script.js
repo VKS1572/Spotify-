@@ -44,7 +44,9 @@ function playMusic(track) {
 
     console.log("Playing URL:", currentSong.src);
 
-    document.querySelector(".songinfo").innerHTML = track;
+    // Update UI
+    document.querySelector(".songinfo").innerHTML = decodeURIComponent(track);
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 
     currentSong.play()
         .then(() => {
