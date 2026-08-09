@@ -34,7 +34,7 @@ async function getSongs() {
 }
 
 // Play music
-function playMusic(track) {
+function playMusic(track,pause=false) {
 
     track = track.split("\\").pop();
     track = track.split("/").pop();
@@ -57,9 +57,20 @@ function playMusic(track) {
         });
 }
 
-async function main() {
+function formatTime(seconds) {
+    if (isNaN(seconds)) return "00:00";
 
+    let minutes = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
+
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+}
+
+async function main() {
+    
     songs = await getSongs();
+
+    playMusic(songs[0],true);
 
     console.log(songs);
 
@@ -112,15 +123,42 @@ async function main() {
     // Update time
     currentSong.addEventListener("timeupdate", () => {
 
-        document.querySelector(".songtime").innerHTML =
-            `${Math.floor(currentSong.currentTime)} / ${Math.floor(currentSong.duration)}`;
+    document.querySelector(".songtime").innerHTML =
+        `${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`;
+    document.querySelector(".circle").style.left= (currentSong.currentTime/currentSong.duration)* 100 + "%";
+});
 
-    });
+
+//Add an event Listener to seekbar
+
+document.querySelector(".seekbar").addEventListener("click", e=>{
+    let percent =( e.offsetX/e.target.getBoundingClientRect().width)*100; 
+    document.querySelector(".circle").style.left= percent*100 + "%";
+    currentSong.currentTime = ((currentSong.duration) * percent)/100
+})
 
     currentSong.addEventListener("error", (e) => {
         console.log("Audio Error:", e);
     });
 
+    //Add an event listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "0"
+    })
+
+    //Add an event listener for close button
+     document.querySelector(".close").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "-120%"
+    })
+    //Add an event listener for next button
+
+    previous.addEventListener("click",()=>{
+        comsole.log("Previous button clicked");
+    })
+
+    previous.addEventListener("click",()=>{
+        comsole.log("Next button clicked");
+    })
 }
 
 main();

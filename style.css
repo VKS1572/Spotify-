@@ -12,6 +12,9 @@ body {
     color: white;
 }
 
+.close{
+    display: none;
+}
 
 .left{
    
@@ -177,7 +180,7 @@ body {
     width: 90%;
     padding: 12px;
     width: 70vw;
-    height: 40px;
+    min-height: 40px;
     
 }
 
@@ -191,6 +194,18 @@ body {
     height:644px ;
     overflow : auto;
     margin-bottom: 44px;
+}
+
+
+.hamburger{
+    display: none;
+}
+
+.hamburgerContainer{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 14px;
 }
 
 .songList ul{
@@ -229,13 +244,14 @@ body {
 }
 
 .seekbar{
-    height: 2px;
-    width: 90%;
+    height: 4px;
+    width: 96%;
    background: black;
     position: absolute;
     bottom: 0;
     border-radius: 10px;
     margin: 6px;
+    cursor: pointer;
 }
 
 .circle{
@@ -252,4 +268,68 @@ body {
 
 .songbuttons img{
     cursor: pointer;
+}
+
+.songinfo,.songtime{
+    color: black;
+    padding: 0 12px;
+}
+
+.abovebar{
+    display: flex;
+    justify-content: space-between;
+    margin:20px 0;
+}
+
+@media (max-width: 1400px) {
+    .left{
+        background-color: rgb(0, 0, 0);
+        position:absolute;
+        left:-120%;
+        transition: all 0.3s;
+        z-index: 1;
+        width: 370px ;
+    }
+
+    .left .close{
+        position:absolute;
+        right: 31px;
+        top: 25px;
+        width: 29px;
+    }
+
+    .right{
+        width: 100vw;
+    }
+    .playbar{
+        width: calc(100vw - 105px);
+    } 
+
+.seekbar{
+    width: calc(100vw - 1200px);
+    }
+
+    .hamburger{
+        display:block;
+    }
+    
+    .right{
+        margin: 0;
+    }
+
+    .card{
+        width:90vw;
+    }
+    .cardContainer{
+        margin: 0;
+        justify-content: center;
+    }
+    .close{
+        display: block;
+    }
+    .abovebar{
+        flex-direction: column;
+        gap:23px;
+        align-items: center;
+    }
 }
